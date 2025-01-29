@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: example-job
+spec:
+  completion: 50
+  parallelism: 1
+  template:
+    spec:
+      containers:
+        - name: example-container
+          image: busybox
+          command: ["echo", "Kubernetes"]
+      restartPolicy: OnFailure
